@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_03_082528) do
+ActiveRecord::Schema.define(version: 2024_05_03_114809) do
 
   create_table "ai_products", force: :cascade do |t|
     t.string "company_name"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2024_05_03_082528) do
   end
 
   create_table "ai_products_target_companies", force: :cascade do |t|
-    t.integer "producut_id"
+    t.integer "product_id"
     t.integer "target_company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
