@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_name: MyString
+  capital: 1
+  establishment_date: 2024-05-03
+  employee_type: MyText
+  business_description: MyText
+  product_name: MyString
+  description: MyText
+  usage_fee_type: MyString
+  usage_fee: 1
+  initial_cost: 1
+  free_plan: false
+  trial: false
+  faq: MyText
+  review: MyString
+
+two:
+  company_name: MyString
+  capital: 1
+  establishment_date: 2024-05-03
+  employee_type: MyText
+  business_description: MyText
+  product_name: MyString
+  description: MyText
+  usage_fee_type: MyString
+  usage_fee: 1
+  initial_cost: 1
+  free_plan: false
+  trial: false
+  faq: MyText
+  review: MyString
