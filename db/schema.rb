@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_03_114809) do
+ActiveRecord::Schema.define(version: 2024_05_05_090641) do
 
   create_table "ai_products", force: :cascade do |t|
     t.string "company_name"
@@ -32,21 +32,21 @@ ActiveRecord::Schema.define(version: 2024_05_03_114809) do
   end
 
   create_table "ai_products_purposes", force: :cascade do |t|
-    t.integer "product_id"
+    t.integer "ai_product_id"
     t.integer "purpose_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ai_products_target_companies", force: :cascade do |t|
-    t.integer "product_id"
+    t.integer "ai_product_id"
     t.integer "target_company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ai_products_target_industries", force: :cascade do |t|
-    t.integer "product_id"
+    t.integer "ai_product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "target_industry_id"
