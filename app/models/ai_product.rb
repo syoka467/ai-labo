@@ -7,4 +7,6 @@ class AiProduct < ApplicationRecord
 
   has_many :ai_products_target_industries
   has_many :target_industries, through: :ai_products_target_industries
+
+  has_many :chat_gpt_products_introductions
 end

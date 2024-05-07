@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_05_090641) do
+ActiveRecord::Schema.define(version: 2024_05_07_122457) do
 
   create_table "ai_products", force: :cascade do |t|
     t.string "company_name"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 2024_05_05_090641) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "target_industry_id"
+  end
+
+  create_table "chat_gpt_ai_products_introductions", force: :cascade do |t|
+    t.integer "ai_product_id"
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "purposes", force: :cascade do |t|

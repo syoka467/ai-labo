@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# AiProductのテストデータを挿入
+ai_product1 = AiProduct.create(product_name: "AI Product 1")
+ai_product2 = AiProduct.create(product_name: "AI Product 2")
+ai_product3 = AiProduct.create(product_name: "AI Product 3")
+# Purposeのテストデータを挿入
+purpose1 = Purpose.create(purpose: "Purpose 1")
+purpose2 = Purpose.create(purpose: "Purpose 2")
+purpose3 = Purpose.create(purpose: "Purpose 3")
+# AiProductとPurposeの関連付けを行う
+ai_product1.purposes << [purpose1, purpose2]
+ai_product2.purposes << [purpose2]
+ai_product3.purposes << [purpose3]
