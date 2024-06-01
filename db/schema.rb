@@ -10,23 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_07_122457) do
+ActiveRecord::Schema.define(version: 2024_05_28_110129) do
 
   create_table "ai_products", force: :cascade do |t|
     t.string "company_name"
-    t.integer "capital"
-    t.date "establishment_date"
-    t.text "employee_type"
+    t.string "capital"
+    t.string "establishment_date"
+    t.string "employee_type"
     t.text "business_description"
     t.string "product_name"
     t.text "description"
     t.string "usage_fee_type"
     t.integer "usage_fee"
-    t.integer "initial_cost"
+    t.string "initial_cost"
     t.boolean "free_plan"
     t.boolean "trial"
     t.text "faq"
     t.string "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "initial_cost_search"
+    t.integer "initial_cost_display"
+    t.string "usag_fee_scrape"
+  end
+
+  create_table "ai_products_categories", force: :cascade do |t|
+    t.integer "ai_prodcut_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +60,12 @@ ActiveRecord::Schema.define(version: 2024_05_07_122457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "target_industry_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "chat_gpt_ai_products_introductions", force: :cascade do |t|

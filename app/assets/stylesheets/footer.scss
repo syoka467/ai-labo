@@ -1,0 +1,77 @@
+/* app/assets/stylesheets/application.css */
+
+/* フッターの全体スタイル */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* フッター内のコンテナ */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* フッターロゴのスタイル */
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.footer-logo-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-description {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* フッターナビゲーションのスタイル */
+.footer-nav-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-nav {
+  display: flex;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+}
+
+.nav-list-item {
+  margin-bottom: 10px;
+}
+
+.nav-list-item a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-list-item a:hover {
+  color: #1e90ff;
+}
+
+/* コピーライトのスタイル */
+.copy-right {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.copy-right small {
+  display: block;
+  margin-top: 10px;
+}

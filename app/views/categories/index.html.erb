@@ -1,0 +1,8 @@
+<section class="categories">
+  <h2>カテゴリ一覧</h2>
+  <ul>
+    <% @categories.each do |category| %>
+    <li><a href="#"><%= category.category %></a></li>
+    <% end %>
+  </ul>
+</section>

@@ -1,0 +1,33 @@
+.pc-nav {
+  background-color: #f8f9fa; /* 背景色 */
+  padding: 10px 0; /* 上下の余白 */
+}
+
+.pc-nav ul {
+  display: flex; /* フレックスボックスレイアウト */
+   /* 中央揃え */
+  align-items: center; /* 垂直中央揃え */
+  list-style-type: none; /* デフォルトのリストスタイルを無効化 */
+  padding: 0; /* リストのデフォルトパディングを無効化 */
+  margin: 0; /* リストのデフォルトマージンを無効化 */
+}
+
+.pc-nav li {
+  margin: 0 30px; /* 各ナビゲーションアイテムの間に余白を追加 */
+  text-align: center; /* テキストの中央揃え */
+}
+
+.pc-nav li a {
+  display: block; /* リンクをブロック要素にする */
+  padding: 10px 2px; /* ボタン内のパディング */
+  color: #5a5a5a; /* リンクの色 */
+  text-decoration: none; /* 下線を無効化 */
+  border: 1px solid #ddd; /* ボーダー */
+  border-radius: 5px; 
+  transition: background-color 0.3s, color 0.3s; /* ホバー時のトランジション */
+}
+
+.nav-link:hover {
+  background-color: #007bff; /* ホバー時の背景色 */
+  color: #fff; /* ホバー時の文字色 */
+}

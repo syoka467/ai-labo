@@ -1,0 +1,49 @@
+<header>
+  <h1>AI-Syllabusへようこそ！</h1>
+  <p>あらゆるAIツールを一目で比較・検討</p>
+</header>
+<div class="search-container">
+  <div class="search-box">
+    <input type="text" name="search" placeholder="検索...">
+  </div>
+</div>
+<section>
+  <h2>メディアを利用する3つのポイント</h2>
+  <div class="points">
+    <div>
+      <i class="fas fa-search fa-2x"></i>
+      <p>シンプルな検索</p>
+    </div>
+    <div>
+      <i class="fas fa-chart-bar fa-2x"></i>
+      <p>詳細な比較</p>
+    </div>
+    <div>
+      <i class="fas fa-user-check fa-2x"></i>
+      <p>信頼性の高いレビュー</p>
+    </div>
+  </div>
+</section>
+<section class="categories">
+  <h2>カテゴリ一覧</h2>
+  <ul>
+    <% @categories.each do |category| %>
+    <li><a href="#"><%= category.category %></a></li>
+    <% end %>
+  </ul>
+</section>
+<section class="products">
+  <h2>人気のプロダクト</h2>
+  <div>
+    <a href="#">プロダクト1</a>
+    <a href="#">プロダクト2</a>
+    <a href="#">プロダクト3</a>
+    <a href="#">プロダクト4</a>
+    <a href="#">プロダクト5</a>
+    <a href="#">プロダクト6</a>
+    <a href="#">プロダクト7</a>
+    <a href="#">プロダクト8</a>
+    <a href="#">プロダクト9</a>
+    <a href="#">プロダクト10</a>
+  </div>
+</section>
