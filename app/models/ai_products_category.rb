@@ -1,0 +1,2 @@
+class AiProductsCategory < ApplicationRecord
+end

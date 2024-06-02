@@ -1,0 +1,30 @@
+<footer>
+  <div class="footer-container">
+  <%= link_to root_path,class:"no-underline" do %>
+    <div class="footer-logo">
+      <h1 class="footer-logo-title"><span class="logo-description">あらゆるAIツールを一目で比較・検討</span>AI-Syllabus</h1>
+    </div>
+  <% end %>
+    <h3>ニュースレター登録</h3>
+  <form>
+    <input type="email" name="email" placeholder="メールアドレス">
+    <button type="submit">登録</button>
+  </form>
+    <div class="footer-nav-container">
+      <div class="footer-nav">
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <%= link_to 'ホーム', root_path %>
+          </li>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to 'カテゴリ一覧', categories_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy-right">
+      <small>Copyright © 2024 AI-Syllabus inc. All Rights Reserved.</small>
+    <div>
+  </div>
+</footer>

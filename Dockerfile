@@ -9,7 +9,13 @@ WORKDIR /myproject
 ADD Gemfile /myproject/Gemfile
 ADD Gemfile.lock /myproject/Gemfile.lock
 
-RUN gem install bundler -v 2.4.22 && bundle install
+# RUN gem install bundler -v 2.4.22 && bundle install
+# RUN bundle config set --global force_ruby_platform true
+# RUN bundle install
+
+RUN gem install bundler -v 2.4.22
+RUN bundle config set --global force_ruby_platform true
 RUN bundle install
+
 
 ADD . /myproject
