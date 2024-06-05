@@ -1,0 +1,57 @@
+<main>
+  <aside class="sidebar">
+    <h2>フィルターオプション</h2>
+    <form id="filter-form">
+      <div class="filter-group">
+        <label for="search">AIツールを検索:</label>
+        <input type="text" id="search" name="search" placeholder="AIツールを検索" class="search-input">
+      </div>
+      <div class="filter-group">
+        <h3>カテゴリ</h3>
+        <label class="checkbox-label">
+          <input type="checkbox" name="category" value="自然言語処理" class="checkbox-input">
+          自然言語処理
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="category" value="コンピュータビジョン" class="checkbox-input">
+          コンピュータビジョン
+        </label>
+      </div>
+      <div class="filter-group">
+        <h3>価格範囲</h3>
+        <select name="price" class="select-input">
+          <option value="無料">無料</option>
+          <option value="10以下">$10以下</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <h3>評価</h3>
+        <select name="rating" class="select-input">
+          <option value="4以上">4スター以上</option>
+          <option value="3以上">3スター以上</option>
+        </select>
+      </div>
+      <button type="submit" class="filter-button">フィルター</button>
+    </form>
+  </aside>
+
+  <section class="product-list">
+    <div class="products">
+      <!-- AI製品の例 -->
+      <% @ai_products.each do |ai_product| %>
+      <div class="product-item">
+        <div class="product-header">
+          <h3 class="product-name"><%= ai_product.product_name %></h3>
+          <input type="checkbox" name="compare" class="compare-checkbox">
+        </div>
+        <p class="product-summary"><%= ai_product.description %></p>
+        <p class="product-rating">
+          <i class="fas fa-star text-orange-500"></i> 4.5 (200 reviews)
+        </p>
+         <%= link_to '製品詳細', ai_product_path(ai_product), class: 'details-button' %>
+      </div>
+      <% end %>
+      <!-- 他の製品も同様に追加 -->
+    </div>
+  </section>
+</main>

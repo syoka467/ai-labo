@@ -2,20 +2,15 @@
   <h1>AI-Syllabusへようこそ！</h1>
   <p>あらゆるAIツールを一目で比較・検討</p>
 </header>
-<div class="search-container">
-  <div class="search-box">
-    <input type="text" name="search" placeholder="検索...">
-  </div>
-</div>
 <section>
   <h2>メディアを利用する3つのポイント</h2>
   <div class="points">
     <div>
-      <i class="fas fa-search fa-2x"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
       <p>シンプルな検索</p>
     </div>
     <div>
-      <i class="fas fa-chart-bar fa-2x"></i>
+      <i class="fa-solid fa-sliders"></i>
       <p>詳細な比較</p>
     </div>
     <div>
@@ -28,22 +23,23 @@
   <h2>カテゴリ一覧</h2>
   <ul>
     <% @categories.each do |category| %>
-    <li><a href="#"><%= category.category %></a></li>
+    <li><a><%= category.category %></a></li>
     <% end %>
   </ul>
 </section>
-<section class="products">
-  <h2>人気のプロダクト</h2>
-  <div>
-    <a href="#">プロダクト1</a>
-    <a href="#">プロダクト2</a>
-    <a href="#">プロダクト3</a>
-    <a href="#">プロダクト4</a>
-    <a href="#">プロダクト5</a>
-    <a href="#">プロダクト6</a>
-    <a href="#">プロダクト7</a>
-    <a href="#">プロダクト8</a>
-    <a href="#">プロダクト9</a>
-    <a href="#">プロダクト10</a>
-  </div>
-</section>
+
+    <h2 class="text-center mb-4">人気のプロダクト</h2>
+    <div class="card-group">
+      <div class="d-flex">
+      <% @ai_products.each do |ai_product| %>
+        <div class="card h-100" style="min-width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body flex-column">
+            <h5 class="card-title"><%= ai_product.product_name %></h5>
+            <p class="card-text flex-grow-1"><%= ai_product.description %></p>
+            <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
