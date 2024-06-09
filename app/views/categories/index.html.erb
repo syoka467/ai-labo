@@ -2,7 +2,7 @@
   <h2>カテゴリ一覧</h2>
   <ul>
     <% @categories.each do |category| %>
-    <li><a href="#"><%= category.category %></a></li>
+    <li><%= link_to category.category, category_path(category)%></li>
     <% end %>
   </ul>
 </section>

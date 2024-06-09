@@ -1,0 +1,15 @@
+<div class="products">
+  <% @ai_products.each do |ai_product| %>
+  <div class="product-item">
+    <div class="product-header">
+      <h3 class="product-name"><%= ai_product.product_name %></h3>
+      <input type="checkbox" name="compare" class="compare-checkbox">
+    </div>
+    <p class="product-summary"><%= ai_product.description %></p>
+    <p class="product-rating">
+      <i class="fas fa-star text-orange-500"></i> <%= ai_product.rating %> (200 reviews)
+    </p>
+    <%= link_to '製品詳細', ai_product_path(ai_product), class: 'details-button' %>
+  </div>
+  <% end %>
+</div>

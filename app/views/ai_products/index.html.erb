@@ -1,57 +1,61 @@
-<main>
+<div class = "search_products_container">
   <aside class="sidebar">
     <h2>フィルターオプション</h2>
-    <form id="filter-form">
+    <%= form_with url: search_path, method: :get, remote: true do |f| %>
       <div class="filter-group">
         <label for="search">AIツールを検索:</label>
-        <input type="text" id="search" name="search" placeholder="AIツールを検索" class="search-input">
+        <%= f.text_field :search, placeholder: "AIツールを検索", class: "search-input" %>
       </div>
       <div class="filter-group">
-        <h3>カテゴリ</h3>
-        <label class="checkbox-label">
-          <input type="checkbox" name="category" value="自然言語処理" class="checkbox-input">
-          自然言語処理
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" name="category" value="コンピュータビジョン" class="checkbox-input">
-          コンピュータビジョン
-        </label>
+        <label>カテゴリ:</label>
+        <span id="toggle-category-list" class="toggle-button">カテゴリを表示</span>
+        <div id="category-list" class="category-list">
+          <% @categories.each_with_index do |category, index| %>
+            <div class="filter-option">
+              <%= check_box_tag 'category[]', category.id, false, id: "category_#{category.id}" %>
+              <%= label_tag "category_#{category.id}", category.category %>
+            </div>
+          <% end %>
+        </div>
       </div>
+
       <div class="filter-group">
-        <h3>価格範囲</h3>
-        <select name="price" class="select-input">
-          <option value="無料">無料</option>
-          <option value="10以下">$10以下</option>
-        </select>
+        <label>利用目的:</label>
+        <span id="toggle-purpose-list" class="toggle-button">利用目的一覧を表示</span>
+        <div id="purpose-list" class="category-list">
+          <% @purposes.each_with_index do |purpose, index| %>
+            <div class="filter-option">
+              <%= check_box_tag 'purpose[]', purpose.id, false, id: "purpose_#{purpose.id}" %>
+              <%= label_tag "purpose_#{purpose.id}", purpose.purpose %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="filter-group">
-        <h3>評価</h3>
-        <select name="rating" class="select-input">
-          <option value="4以上">4スター以上</option>
-          <option value="3以上">3スター以上</option>
-        </select>
-      </div>
-      <button type="submit" class="filter-button">フィルター</button>
-    </form>
+    <%= f.submit "フィルター", class: "filter-button" %>
+    <% end %>
   </aside>
 
-  <section class="product-list">
-    <div class="products">
+  <section class="product-list" id="ai_products">
+    <div class="search_products">
       <!-- AI製品の例 -->
       <% @ai_products.each do |ai_product| %>
       <div class="product-item">
         <div class="product-header">
           <h3 class="product-name"><%= ai_product.product_name %></h3>
-          <input type="checkbox" name="compare" class="compare-checkbox">
         </div>
-        <p class="product-summary"><%= ai_product.description %></p>
-        <p class="product-rating">
-          <i class="fas fa-star text-orange-500"></i> 4.5 (200 reviews)
+        <p class="product-summary"><%= ai_product.chat_gpt_ai_products_introduction.introduction %></p>
+        <p class="product-fee-type badge badge-secondary">
+          <%= ai_product.usage_fee_type %>
         </p>
+        <% ai_product.categories.each do |category| %>
+          <span class="badge badge-secondary"><%= category.category %></span>
+        <% end %>
          <%= link_to '製品詳細', ai_product_path(ai_product), class: 'details-button' %>
       </div>
       <% end %>
-      <!-- 他の製品も同様に追加 -->
     </div>
+    <%= paginate @ai_products %>
   </section>
-</main>
+ </div> 
+
+

@@ -80,21 +80,21 @@ class Scrape_ai_products
       end
 
         #Scrape_company.getEachElementFromLink
-        purpose = current_page.search('.tagList')[0]
-        purpose_count = purpose.search('.tagList__item').length
-      (0..purpose_count-1).each do |h|
-        purpose_text = purpose.search('.tagList__item')[h].inner_text
-        purposes.push(purpose_text)
-      end
-      chat_gpt_text = runApi(product_name,description,purpose,target_companies)
-      begin
-        ai_product_id = AiProduct.find_by(product_name: product_name).id
-      rescue
-      end
-      chat_gpt_i = ChatGptAiProductsIntroduction.new
-      chat_gpt_i.ai_product_id = ai_product_id
-      chat_gpt_i.introduction = chat_gpt_text
-      chat_gpt_i.save
+      #   purpose = current_page.search('.tagList')[0]
+      #   purpose_count = purpose.search('.tagList__item').length
+      # (0..purpose_count-1).each do |h|
+      #   purpose_text = purpose.search('.tagList__item')[h].inner_text
+      #   purposes.push(purpose_text)
+      # end
+      # chat_gpt_text = runApi(product_name,description,purpose,target_companies)
+      # begin
+      #   ai_product_id = AiProduct.find_by(product_name: product_name).id
+      # rescue
+      # end
+      # chat_gpt_i = ChatGptAiProductsIntroduction.new
+      # chat_gpt_i.ai_product_id = ai_product_id
+      # chat_gpt_i.introduction = chat_gpt_text
+      # chat_gpt_i.save
 
       #利用料金を綺麗にする。
 
@@ -196,7 +196,7 @@ class Scrape_ai_products
       # (0..faq_question_count-1).each do |s|
       #   faq.push(faq_question[s].inner_text+faq_answer[s].inner_text.gsub(" ", ""))
       # end
-      
+      # puts faq
       # 無料トライアル有無
       # free_plan = company_description[2].inner_text
       # if free_plan == 'なし' then
@@ -219,6 +219,7 @@ class Scrape_ai_products
 
       # ai_product = AiProduct.new
       # ai_product = AiProduct.find_by(product_name: product_name)
+      
       # id = ai_product.id
       # puts id
       # begin
@@ -286,12 +287,15 @@ class Scrape_ai_products
 
 
   end
-  # Scrape_company.test 小さいテストをする用
+  # Scrape_ai_products.test 小さいテストをする用
   def self.test()
+    image_files = (1..30).map { |i| "製品画像#{i}.jpeg" }
 
-    str = 10000
-    a = str.include?('10000')
-    puts a
+    AiProduct.all.each do |product|
+      random_image = image_files.sample
+      # puts product
+      product.update(image: random_image)
+    end
   end
 
   #チャットGPTのAPIを使用

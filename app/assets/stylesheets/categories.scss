@@ -1,0 +1,45 @@
+.categories {
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 8px;
+  margin: 32px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.categories h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.categories ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin: 0 auto;
+}
+
+.categories li {
+  margin: 10px; /* 各項目の間に余白を追加 */
+  display: flex;
+  justify-content: center;
+}
+
+.categories a {
+  display: inline-block;
+  padding: 15px 20px;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 1.1em;
+  text-align: center;
+  background-color: #ffffff; /* リンクの背景色を白に */
+}
+
+.categories a:hover {
+  background-color: #1E90FF;
+  color: #fff;
+}

@@ -41,6 +41,7 @@ gem 'mechanize'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'openai'
 gem "ruby-openai"
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

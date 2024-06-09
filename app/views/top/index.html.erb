@@ -1,45 +1,71 @@
-<header>
-  <h1>AI-Syllabusへようこそ！</h1>
-  <p>あらゆるAIツールを一目で比較・検討</p>
-</header>
+<div class="title">
+  <div class="overlay">
+    <h1>AI-Syllabusへようこそ！</h1>
+    <p>あらゆるAIツールを一目で比較・検討</p>
+  </div>
+</div>
+
 <section>
-  <h2>メディアを利用する3つのポイント</h2>
-  <div class="points">
-    <div>
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <p>シンプルな検索</p>
-    </div>
-    <div>
-      <i class="fa-solid fa-sliders"></i>
-      <p>詳細な比較</p>
-    </div>
-    <div>
-      <i class="fas fa-user-check fa-2x"></i>
-      <p>信頼性の高いレビュー</p>
+  <div class="container mt-5 mb-5">
+    <h2>
+      メディアを利用する <span class="highlight-blue">3つのポイント</span>
+    </h2>
+  </div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-header">シンプルな検索</h5>
+            <ul class="list-unstyled mt-3">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-header">詳細の比較</h5>
+            <ul class="list-unstyled mt-3">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-header">信頼性</h5>
+            <ul class="list-unstyled mt-3">
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<section class="categories">
+
+
+<section class="top_page_categories">
   <h2>カテゴリ一覧</h2>
   <ul>
     <% @categories.each do |category| %>
-    <li><a><%= category.category %></a></li>
+    <li><%= link_to category.category, category_path(category)%></li>
     <% end %>
   </ul>
 </section>
 
-    <h2 class="text-center mb-4">人気のプロダクト</h2>
-    <div class="card-group">
-      <div class="d-flex">
+<section class = "top_page_ai_product">
+  <h2> ピックアップ製品 </h2>
+  <ul>
       <% @ai_products.each do |ai_product| %>
-        <div class="card h-100" style="min-width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body flex-column">
-            <h5 class="card-title"><%= ai_product.product_name %></h5>
-            <p class="card-text flex-grow-1"><%= ai_product.description %></p>
-            <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
-          </div>
-        </div>
+        <li><%= link_to ai_product.product_name, ai_product_path(ai_product) %></li>
       <% end %>
-      </div>
-    </div>
+  </ul>
+</section>
+
+
+  

@@ -1,29 +1,22 @@
 <section class="container-fluid my-4">
   <div class="row">
     <div class="col-md-6">
-      <img src="#" alt="製品画像" class="img-fluid">
+      <%= image_tag @ai_product.image, alt: "製品画像", class: "img-fluid" %>
     </div>
     <div class="col-md-6">
       <div class="aiproduct-wrapper">
         <h1 class="heading"><%= @ai_product.product_name %></h1>
-        <p class="description"><%= @ai_product.description %></p>
+        <p class="description"><%= @ai_product.chat_gpt_ai_products_introduction.introduction %></p>
       </div>
     </div>
   </div>
 </section>
-  <div class = "mt-5">
-    <h2 class="">製品スペック</h2>
-      <ul class="list-group">
-        <li class="list-group-item">Item #1</li>
-        <li class="list-group-item">Item #2</li>
-      </ul>
-  </div>
   <div class="mt-5">
     <h2 class="">運営企業情報</h2>
       <ul class="list-group">
-        <li class="list-group-item">企業名</li>
-        <li class="list-group-item">所在地</li>
-        <li class="list-group-item">連絡先</li>
+        <li class="list-group-item">企業名：<%= @ai_product.company_name %></li>
+        <li class="list-group-item">資本金：<%= @ai_product.capital %></li>
+        <li class="list-group-item">事業内容：<%= @ai_product.business_description %></li>
       </ul>
   </div>
   <div class="">
@@ -37,9 +30,23 @@
       </thead>
       <tbody>
         <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>
+            <% if @ai_product.trial == true %>
+              無料トライアルあり
+            <% elsif @ai_product.trial == false %>
+              無料試用なし
+            <% else %>
+              お問い合わせください。
+            <% end %>
+          </td>
+          <td><%= @ai_product.usag_fee_scrape %></td>
+          <td>
+            <% if @ai_product.initial_cost.present? %>
+              <%= @ai_product.initial_cost %>
+            <% else%>
+              お問い合わせください。
+            <% end %>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -47,11 +54,13 @@
     <div class="mt-5">
       <h2 class="">よくある質問</h2>
         <ul class="list-group">
-          <li class="list-group-item">質問1</li>
-          <li class="list-group-item list-group-item-warning">回答</li>
-          <li class="list-group-item">質問2</li>
-          <li class="list-group-item list-group-item-warning">回答</li>
-          <li class="list-group-item">質問3</li>
-          <li class="list-group-item list-group-item-warning">回答</li>
+          <% @qa_pairs.each_with_index do |pair, index| %>
+            <% unless pair[0].nil? || pair[0].strip.empty? || pair[1].nil? || pair[1].strip.empty? %>
+              <li class="list-group-item">
+                <strong>質問:</strong> <%= pair[0] %><br>
+                <strong>回答:</strong> <%= pair[1] %>
+              </li>
+            <% end %>
+          <% end %>
         </ul>
     </div>

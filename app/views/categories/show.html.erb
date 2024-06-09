@@ -1,0 +1,21 @@
+<section class="product-list" id="ai_products">
+    <div class="search_products">
+      <!-- AI製品の例 -->
+      <% @ai_products.each do |ai_product| %>
+      <div class="product-item">
+        <div class="product-header">
+          <h3 class="product-name"><%= ai_product.product_name %></h3>
+        </div>
+        <p class="product-summary"><%= ai_product.description %></p>
+        <p class="product-rating">
+          <i class="fas fa-star text-orange-500"></i> 4.5 (200 reviews)
+        </p>
+        <% ai_product.categories.each do |category| %>
+          <span class="badge badge-secondary"><%= category.category %></span>
+        <% end %>
+         <%= link_to '製品詳細', ai_product_path(ai_product), class: 'details-button' %>
+      </div>
+      <% end %>
+    </div>
+    <%= paginate @ai_products %>
+  </section>

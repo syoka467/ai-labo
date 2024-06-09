@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  belongs_to :ai_product
-  
+  has_many :ai_products_categories
+  has_many :ai_products, through: :ai_products_categories
 end
