@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2024_06_09_070604) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ai_products", force: :cascade do |t|
     t.string "company_name"
     t.string "capital"
